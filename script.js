@@ -16,7 +16,7 @@ const randomFunct = {
   symbol: generateRandomSymbol,
 };
 
-// Write password to the #password input
+// Event listener to verify selected criteria
 generate.addEventListener('click', () => {
   const length = +lengthEl.value;
   const hasLower = lowercaseEl.checked;
@@ -27,7 +27,7 @@ generate.addEventListener('click', () => {
   passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 
-
+// Function to generate password based on criteria the user selects
 function generatePassword(lower, upper, number, symbol, length) {
   let generatedPassword = ''; 
   const typesCount = lower + upper + number + symbol;
@@ -52,6 +52,7 @@ function generatePassword(lower, upper, number, symbol, length) {
   return finalPassword;
 }
 
+// Functions to generate random characters for each lowercase, uppercase, number, and symbol when called upon
 function generateRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -68,10 +69,4 @@ function generateRandomSymbol() {
   const symbols = '!@#$%^&*()_-<>?.';
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
-
-
-
-
-
-// Add event listener to generate button
 
