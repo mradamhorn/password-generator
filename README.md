@@ -6,7 +6,7 @@ This is a password generator using HTML, CSS, and JavaScript. Most of the functi
 
 ## Link to Live Password Generator Page
 
-[Here is the live Password Generator page]()
+[Here is the live Password Generator page](https://mradamhorn.github.io/password-generator/)
 
 ## Screenshot of Password Generator
 
