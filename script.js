@@ -1,13 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 
-const passwordEl = document.getElementById('password');
-const lengthEl = document.getElementById('length');
-const uppercaseEl = document.getElementById('uppercase');
-const lowercaseEl = document.getElementById('lowercase');
-const numbersEl = document.getElementById('number');
-const symbolsEl = document.getElementById('symbol');
-const generateEl = document.getElementById('generate');
+const passwordEl = document.querySelector('#password');
+const lengthEl = document.querySelector('#length');
+const uppercaseEl = document.querySelector('#uppercase');
+const lowercaseEl = document.querySelector('#lowercase');
+const numbersEl = document.querySelector('#number');
+const symbolsEl = document.querySelector('#symbol');
+const generateEl = document.querySelector('#generate');
 
 const randomFunct = {
   lower: generateRandomLower,
@@ -29,10 +29,17 @@ generate.addEventListener('click', () => {
 
 // Function to generate password based on criteria the user selects
 function generatePassword(lower, upper, number, symbol, length) {
+  if(length < 8) {
+    alert('Your password needs to be at least 8 characters long.')
+  }
+  else if (length > 128) {
+    alert('Your password is too long.')
+  }
+  else{
   let generatedPassword = ''; 
   const typesCount = lower + upper + number + symbol;
   const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-
+  
 
   if(typesCount === 0) {
     return '';
@@ -50,6 +57,7 @@ function generatePassword(lower, upper, number, symbol, length) {
   const finalPassword = generatedPassword.slice(0, length);
 
   return finalPassword;
+}
 }
 
 // Functions to generate random characters for each lowercase, uppercase, number, and symbol when called upon
